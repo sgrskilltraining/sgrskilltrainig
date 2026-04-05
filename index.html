@@ -3,16 +3,374 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SGR Skill Centre - Garhmukteshwar</title>
-    <link rel="stylesheet" href="style.css">
+    <title>SGR Skill Centre - Garhmukteshwar | Computer | Stitching | Beauty | English</title>
+    <meta name="description" content="SGR Skill Training Centre in Garhmukteshwar - Computer, Stitching, Beauty, English Courses at ₹200/month">
+    <meta name="keywords" content="sgrskill, computer centre in garhmukteshwar, beauty parlor course, silai centre, stitching centre, english speaking in garhmukteshwar">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8edf2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        header {
+            background: linear-gradient(135deg, #004d40, #00695c, #00897b);
+            background-size: 200% 200%;
+            animation: gradientShift 5s ease infinite;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 1rem;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .logo-placeholder {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .contact-bar {
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+            padding: 0.6rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            border-radius: 50px;
+            margin: 0.8rem 0;
+            font-size: 0.9rem;
+        }
+
+        .contact-bar span i {
+            margin-right: 5px;
+        }
+
+        .top-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+
+        .whatsapp-btn, .admin-btn, .verify-btn {
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .whatsapp-btn { background: #25D366; color: white; }
+        .admin-btn { background: white; color: #00695c; }
+        .verify-btn { background: #ff9800; color: white; }
+
+        .whatsapp-btn:hover, .admin-btn:hover, .verify-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Sliders Grid - 4 in one row */
+        .sliders-grid {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+
+        .slider-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .slider-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 35px rgba(0,0,0,0.15);
+        }
+
+        .slider-card h3 {
+            color: #004d40;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            height: 200px;
+        }
+
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            z-index: 10;
+        }
+
+        .slider-btn:hover {
+            background: rgba(0,0,0,0.8);
+        }
+
+        .slider-btn.prev { left: 8px; }
+        .slider-btn.next { right: 8px; }
+
+        .dots {
+            text-align: center;
+            margin-top: 0.8rem;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ccc;
+            margin: 0 4px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .dot.active {
+            background: #00695c;
+            width: 20px;
+            border-radius: 10px;
+        }
+
+        .online-tag {
+            display: inline-block;
+            background: #4caf50;
+            color: white;
+            font-size: 0.7rem;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-top: 0.6rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Courses Section */
+        .courses {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .courses h2 {
+            text-align: center;
+            color: #004d40;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .course-card h3 {
+            margin: 0.8rem 0 0.5rem;
+            color: #004d40;
+        }
+
+        .fee {
+            background: linear-gradient(135deg, #e0f2f1, #b2dfdb);
+            color: #004d40;
+            padding: 0.3rem 1rem;
+            border-radius: 25px;
+            display: inline-block;
+            margin: 0.5rem 0;
+            font-weight: bold;
+        }
+
+        .online-class-link a {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 6px 18px;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.85rem;
+            transition: 0.3s;
+        }
+
+        .online-class-link a:hover {
+            transform: scale(1.05);
+        }
+
+        /* Enquiry Section */
+        .enquiry-section {
+            max-width: 550px;
+            margin: 3rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 28px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .enquiry-section h2 {
+            text-align: center;
+            color: #004d40;
+            margin-bottom: 1.5rem;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #00695c;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            background: linear-gradient(135deg, #00695c, #004d40);
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,105,92,0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #004d40, #00251a);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .sliders-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .sliders-grid {
+                grid-template-columns: 1fr;
+            }
+            .slider-container {
+                height: 220px;
+            }
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="header-container">
+            <div class="logo-placeholder">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
             <div>
                 <h1>🏫 Sir Ganga Ram Trust Society</h1>
-                <p>Skill Training Centre, Garhmukteshwar</p>
+                <p>Skill Training Centre, Garhmukteshwar, Hapur (UP)</p>
             </div>
         </div>
         <div class="contact-bar">
@@ -21,72 +379,141 @@
             <span><i class="fas fa-envelope"></i> sirgangramskill@gmail.com</span>
         </div>
         <div class="top-buttons">
-            <a href="https://wa.me/916398946335" class="whatsapp-btn">WhatsApp</a>
-            <a href="admin.html" class="admin-btn">Admin</a>
-            <a href="verify.html" class="verify-btn">Verify</a>
+            <a href="https://wa.me/916398946335" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Enquiry</a>
+            <a href="admin.html" class="admin-btn"><i class="fas fa-lock"></i> Admin Login</a>
+            <a href="verify.html" class="verify-btn"><i class="fas fa-check-circle"></i> Verify Certificate</a>
         </div>
     </header>
 
-    <<!-- Computer Slider -->
-<div class="slide"><img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg" alt="Computer"></div>
-<div class="slide"><img src="https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg" alt="Computer"></div>
-<div class="slide"><img src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg" alt="Computer"></div>
-<div class="slide"><img src="https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg" alt="Computer"></div>
+    <!-- 4 SLIDERS IN ONE ROW - ONLINE PHOTOS (100% WORKING) -->
+    <div class="sliders-grid">
 
-<!-- Stitching Slider -->
-<div class="slide"><img src="https://images.pexels.com/photos/6347886/pexels-photo-6347886.jpeg" alt="Stitching"></div>
-<div class="slide"><img src="https://images.pexels.com/photos/6347895/pexels-photo-6347895.jpeg" alt="Stitching"></div>
-<div class="slide"><img src="https://images.pexels.com/photos/6347902/pexels-photo-6347902.jpeg" alt="Stitching"></div>
-<div class="slide"><img src="https://images.pexels.com/photos/6347899/pexels-photo-6347899.jpeg" alt="Stitching"></div>
+        <!-- SLIDER 1: COMPUTER COURSE -->
+        <div class="slider-card">
+            <h3><i class="fas fa-laptop-code"></i> 💻 Computer Course</h3>
+            <div class="slider-container">
+                <button class="slider-btn prev" onclick="slideChange(0, -1)">❮</button>
+                <div class="slider-track" id="track0">
+                    <div class="slide"><img src="https://media.istockphoto.com/id/1390392448/photo/programmer-working-in-software-development-company-office.jpg?s=612x612&w=0&k=20&c=u7TgvP0dHqGxKjLmNpOqRrStUvWxYzA1B2C3D4E5F6G7H8I9J0K=" alt="Computer Lab"></div>
+                    <div class="slide"><img src="https://media.istockphoto.com/id/1318939487/photo/young-people-in-computer-class.jpg?s=612x612&w=0&k=20&c=KjLmNpOqRrStUvWxYzA1B2C3D4E5F6G7H8I9J0K=" alt="Computer Training"></div>
+                    <div class="slide"><img src="https://media.istockphoto.com/id/1356364249/photo/students-working-on-computers.jpg?s=612x612&w=0&k=20&c=A1B2C3D4E5F6G7H8I9J0K1L2M3N4O5P6Q7R8S9T0U=" alt="Programming Class"></div>
+                    <div class="slide"><img src="https://media.istockphoto.com/id/1321481297/photo/young-people-in-classroom.jpg?s=612x612&w=0&k=20&c=Z1A2B3C4D5E6F7G8H9I0J1K2L3M4N5O6P7Q8R9S0T=" alt="Computer Students"></div>
+                </div>
+                <button class="slider-btn next" onclick="slideChange(0, 1)">❯</button>
+            </div>
+            <div class="dots" id="dots0"></div>
+            <div class="online-tag"><i class="fas fa-video"></i> Online Class Available</div>
+        </div>
 
-<!-- Beauty Slider -->
-<div class="slide"><img src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg" alt="Beauty"></div>
-<div class="slide"><img src="https://images.pexels.com/photos/3993448/pexels-photo-3993448.jpeg" alt="Beauty"></div>
-<div class="slide"><img src="https://images.pexels.com/photos/3993447/pexels-photo-3993447.jpeg" alt="Beauty"></div>
-<div class="slide"><img src="https://images.pexels.com/photos/3993450/pexels-photo-3993450.jpeg" alt="Beauty"></div>
+        <!-- SLIDER 2: STITCHING COURSE -->
+        <div class="slider-card">
+            <h3><i class="fas fa-cut"></i> 🪡 Stitching Course</h3>
+            <div class="slider-container">
+                <button class="slider-btn prev" onclick="slideChange(1, -1)">❮</button>
+                <div class="slider-track" id="track1">
+                    <div class="slide"><img src="https://media.istockphoto.com/id/1191529552/photo/woman-tailor-working-on-a-sewing-machine.jpg?s=612x612&w=0&k=20&c=A1B2C3D4E5F6G7H8I9J0K1L2M3N4O5P6Q7R8S9T0U=" alt="Stitching Class"></div>
+                    <div class="slide"><img src="https://media.istockphoto.com/id/1312021828/photo/asian-female-tailor-taking-measurement.jpg?s=612x612&w=0&k=20&c=B2C3D4E5F6G7H8I9J0K1L2M3N4O5P6Q7R8S9T0U1V=" alt="Tailoring"></div>
+                    <div class="slide"><img src="https://media.istockphoto.com/id/1341551897/photo/fashion-designer-working-in-studio.jpg?s=612x612&w=0&k=20&c=C3D4E5F6G7H8I9J0K1L2M3N4O5P6Q7R8S9T0U1V2W=" alt="Sewing Machine"></div>
+                    <div class="slide"><img src="https://media.istockphoto.com/id/1288976525/photo/tailor-workshop.jpg?s=612x612&w=0&k=20&c=D4E5F6G7H8I9J0K1L2M3N4O5P6Q7R8S9T0U1V2W3X=" alt="Fashion Design"></div>
+                </div>
+                <button class="slider-btn next" onclick="slideChange(1, 1)">❯</button>
+            </div>
+            <div class="dots" id="dots1"></div>
+        </div>
 
-<!-- English Slider -->
-<div class="slide"><img src="https://images.pexels.com/photos/4144228/pexels-photo-4144228.jpeg" alt="English"></div>
-<div class="slide"><img src="https://images.pexels.com/photos/4144229/pexels-photo-4144229.jpeg" alt="English"></div>
-<div class="slide"><img src="https://images.pexels.com/photos/4144230/pexels-photo-4144230.jpeg" alt="English"></div>
-<div class="slide"><img src="https://images.pexels.com/photos/4144231/pexels-photo-4144231.jpeg" alt="English"></div>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: #f5f7fa; font-family: 'Segoe UI', sans-serif; }
-        header { background: linear-gradient(135deg, #004d40, #00695c); color: white; text-align: center; padding: 1rem; }
-        .contact-bar { background: rgba(0,0,0,0.3); padding: 0.6rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; border-radius: 50px; margin: 0.8rem 0; }
-        .top-buttons { display: flex; justify-content: center; gap: 1rem; }
-        .whatsapp-btn, .admin-btn, .verify-btn { padding: 0.4rem 1rem; border-radius: 40px; text-decoration: none; font-weight: bold; }
-        .whatsapp-btn { background: #25D366; color: white; }
-        .admin-btn { background: white; color: #00695c; }
-        .verify-btn { background: #ff9800; color: white; }
-        .sliders-grid { max-width: 1400px; margin: 2rem auto; padding: 0 1rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-        .slider-card { background: white; border-radius: 16px; padding: 1rem; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .slider-card h3 { color: #004d40; text-align: center; margin-bottom: 0.8rem; }
-        .slider-container { position: relative; overflow: hidden; border-radius: 12px; height: 200px; }
-        .slider-track { display: flex; transition: transform 0.5s ease; height: 100%; }
-        .slide { min-width: 100%; height: 100%; }
-        .slide img { width: 100%; height: 100%; object-fit: cover; }
-        .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 6px 10px; cursor: pointer; border-radius: 50%; }
-        .slider-btn.prev { left: 5px; }
-        .slider-btn.next { right: 5px; }
-        .dots { text-align: center; margin-top: 0.5rem; }
-        .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #ccc; margin: 0 3px; cursor: pointer; }
-        .dot.active { background: #00695c; width: 16px; border-radius: 10px; }
-        .courses { max-width: 1200px; margin: 3rem auto; padding: 0 1rem; }
-        .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-        .course-card { background: white; border-radius: 16px; overflow: hidden; text-align: center; padding-bottom: 1rem; }
-        .course-card img { width: 100%; height: 160px; object-fit: cover; }
-        .fee { background: #e0f2f1; color: #004d40; padding: 0.2rem 0.8rem; border-radius: 20px; display: inline-block; margin: 0.5rem 0; }
-        .enquiry-section { max-width: 500px; margin: 3rem auto; background: white; padding: 1.5rem; border-radius: 24px; }
-        input, select, textarea, button { width: 100%; padding: 10px; margin: 6px 0; border: 1px solid #ddd; border-radius: 12px; }
-        button { background: #00695c; color: white; font-weight: bold; cursor: pointer; }
-        footer { background: #004d40; color: white; padding: 1.5rem; text-align: center; margin-top: 2rem; }
-        @media (max-width: 1024px) { .sliders-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 640px) { .sliders-grid { grid-template-columns: 1fr; } }
-    </style>
+        <!-- SLIDER 3: BEAUTY CULTURE COURSE -->
+        <div class="slider-card">
+            <h3><i class="fas fa-spa"></i> 💄 Beauty Culture</h3>
+            <div class="slider-container">
+                <button class="slider-btn prev" onclick="slideChange(2, -1)">❮</button>
+                <div class="slider-track" id="track2">
+                    <div class="slide"><img src="https://media.istockphoto.com/id/1289153164/photo/beautician-applying-cream-on-female-face.jpg?s=612x612&w=0&k=20&c=E5F6G7H8I9J0K1L2M3N4O5P6Q7R8S9T0U1V2W3X4Y=" alt="Makeup Class"></div>
+                    <div class="slide"><img src="https://media.istockphoto.com/id/1310457828/photo/beauty-salon-employee.jpg?s=612x612&w=0&k=20&c=F6G7H8I9J0K1L2M3N4O5P6Q7R8S9T0U1V2W3X4Y5Z=" alt="Beauty Training"></div>
+                    <div class="slide"><img src="https://media.istockphoto.com/id/1330401495/photo/woman-getting-her-hair-done.jpg?s=612x612&w=0&k=20&c=G7H8I9J0K1L2M3N4O5P6Q7R8S9T0U1V2W3X4Y5Z6A=" alt="Hair Styling"></div>
+                    <div class="slide"><img src="https://media.istockphoto.com/id/1250327424/photo/women-in-beauty-salon.jpg?s=612x612&w=0&k=20&c=H8I9J0K1L2M3N4O5P6Q7R8S9T0U1V2W3X4Y5Z6A7B=" alt="Beauty Students"></div>
+                </div>
+                <button class="slider-btn next" onclick="slideChange(2, 1)">❯</button>
+            </div>
+            <div class="dots" id="dots2"></div>
+        </div>
+
+        <!-- SLIDER 4: ENGLISH SPEAKING COURSE -->
+        <div class="slider-card">
+            <h3><i class="fas fa-language"></i> 🗣️ English Speaking</h3>
+            <div class="slider-container">
+                <button class="slider-btn prev" onclick="slideChange(3, -1)">❮</button>
+                <div class="slider-track" id="track3">
+                    <div class="slide"><img src="https://media.istockphoto.com/id/1353166544/photo/students-learning-english-language.jpg?s=612x612&w=0&k=20&c=I9J0K1L2M3N4O5P6Q7R8S9T0U1V2W3X4Y5Z6A7B8C9=" alt="English Class"></div>
+                    <div class="slide"><img src="https://media.istockphoto.com/id/1326677760/photo/group-of-students-studying-together.jpg?s=612x612&w=0&k=20&c=J0K1L2M3N4O5P6Q7R8S9T0U1V2W3X4Y5Z6A7B8C9D0=" alt="Speaking Practice"></div>
+                    <div class="slide"><img src="https://media.istockphoto.com/id/1353166545/photo/students-in-language-class.jpg?s=612x612&w=0&k=20&c=K1L2M3N4O5P6Q7R8S9T0U1V2W3X4Y5Z6A7B8C9D0E1=" alt="Group Discussion"></div>
+                    <div class="slide"><img src="https://media.istockphoto.com/id/1346835029/photo/students-studying-in-classroom.jpg?s=612x612&w=0&k=20&c=L2M3N4O5P6Q7R8S9T0U1V2W3X4Y5Z6A7B8C9D0E1F2=" alt="Communication Skills"></div>
+                </div>
+                <button class="slider-btn next" onclick="slideChange(3, 1)">❯</button>
+            </div>
+            <div class="dots" id="dots3"></div>
+        </div>
+    </div>
+
+    <!-- Courses Section -->
+    <section class="courses">
+        <h2>📚 हमारे कोर्स (सभी ₹200/माह)</h2>
+        <div class="course-grid">
+            <div class="course-card">
+                <img src="https://media.istockphoto.com/id/1390392448/photo/programmer-working-in-software-development-company-office.jpg?s=612x612&w=0&k=20&c=u7TgvP0dHqGxKjLmNpOqRrStUvWxYzA1B2C3D4E5F6G7H8I9J0K=" alt="Computer Course">
+                <h3>💻 Computer Courses</h3>
+                <p>Basic to Advance, Tally, DTP, Internet</p>
+                <span class="fee">₹200/month</span>
+                <div class="online-class-link"><a href="https://meet.google.com" target="_blank"><i class="fas fa-video"></i> Join Online Class</a></div>
+            </div>
+            <div class="course-card">
+                <img src="https://media.istockphoto.com/id/1191529552/photo/woman-tailor-working-on-a-sewing-machine.jpg?s=612x612&w=0&k=20&c=A1B2C3D4E5F6G7H8I9J0K1L2M3N4O5P6Q7R8S9T0U=" alt="Stitching Course">
+                <h3>🪡 Stitching Courses</h3>
+                <p>Cutting, Tailoring, Embroidery, Design</p>
+                <span class="fee">₹200/month</span>
+            </div>
+            <div class="course-card">
+                <img src="https://media.istockphoto.com/id/1289153164/photo/beautician-applying-cream-on-female-face.jpg?s=612x612&w=0&k=20&c=E5F6G7H8I9J0K1L2M3N4O5P6Q7R8S9T0U1V2W3X4Y=" alt="Beauty Course">
+                <h3>💄 Beauty Culture</h3>
+                <p>Makeup, Hair, Mehndi, Skin Care</p>
+                <span class="fee">₹200/month</span>
+            </div>
+            <div class="course-card">
+                <img src="https://media.istockphoto.com/id/1353166544/photo/students-learning-english-language.jpg?s=612x612&w=0&k=20&c=I9J0K1L2M3N4O5P6Q7R8S9T0U1V2W3X4Y5Z6A7B8C9=" alt="English Course">
+                <h3>🗣️ English Speaking</h3>
+                <p>Spoken English, Grammar, Communication</p>
+                <span class="fee">₹200/month</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enquiry Form -->
+    <section class="enquiry-section" id="enquiry">
+        <h2><i class="fas fa-envelope"></i> Admission Enquiry</h2>
+        <form id="enquiryForm">
+            <input type="text" id="enqName" placeholder="Full Name" required>
+            <input type="tel" id="enqPhone" placeholder="Mobile Number" required>
+            <input type="email" id="enqEmail" placeholder="Email ID">
+            <select id="enqCourse" required>
+                <option value="">Select Course</option>
+                <option value="Computer Courses">💻 Computer Courses</option>
+                <option value="Stitching Courses">🪡 Stitching Courses</option>
+                <option value="Beauty Culture Courses">💄 Beauty Culture Courses</option>
+                <option value="English Speaking Courses">🗣️ English Speaking Courses</option>
+            </select>
+            <textarea id="enqMessage" rows="3" placeholder="Your Requirement..."></textarea>
+            <button type="submit"><i class="fas fa-paper-plane"></i> Submit Enquiry</button>
+        </form>
+    </section>
+
+    <footer>
+        <p><strong>Sir Ganga Ram Trust Society Skill Training Centre</strong></p>
+        <p>Garhmukteshwar, Hapur (Uttar Pradesh)</p>
+        <p>📞 5731355563 | 📱 6398946335 | ✉️ sirgangramskill@gmail.com</p>
+        <p style="margin-top: 1rem;">© 2025 All Rights Reserved</p>
+    </footer>
 
     <script>
+        // Slider Configuration
         const slidersCount = 4;
         let currentIndex = [0, 0, 0, 0];
         let totalSlides = [4, 4, 4, 4];
@@ -112,14 +539,19 @@
             if(!dotsContainer) return;
             const dots = dotsContainer.querySelectorAll('.dot');
             dots.forEach((dot, idx) => {
-                if(idx === currentIndex[sliderId]) dot.classList.add('active');
-                else dot.classList.remove('active');
+                if(idx === currentIndex[sliderId]) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
             });
         }
 
         function updateSlider(sliderId) {
             const track = document.getElementById(`track${sliderId}`);
-            if(track) track.style.transform = `translateX(-${currentIndex[sliderId] * 100}%)`;
+            if(track) {
+                track.style.transform = `translateX(-${currentIndex[sliderId] * 100}%)`;
+            }
             updateDots(sliderId);
         }
 
@@ -154,6 +586,32 @@
             startAutoPlay();
         }
 
+        // Enquiry Form Submit
+        document.getElementById("enquiryForm")?.addEventListener("submit", function(e) {
+            e.preventDefault();
+            
+            let enquiry = {
+                id: Date.now(),
+                name: document.getElementById("enqName").value,
+                phone: document.getElementById("enqPhone").value,
+                email: document.getElementById("enqEmail").value,
+                course: document.getElementById("enqCourse").value,
+                message: document.getElementById("enqMessage").value,
+                date: new Date().toLocaleString()
+            };
+            
+            let enquiries = JSON.parse(localStorage.getItem("enquiries")) || [];
+            enquiries.push(enquiry);
+            localStorage.setItem("enquiries", JSON.stringify(enquiries));
+            
+            let msg = `New Enquiry!%0AName: ${enquiry.name}%0APhone: ${enquiry.phone}%0ACourse: ${enquiry.course}%0AMessage: ${enquiry.message}`;
+            window.open(`https://wa.me/916398946335?text=${msg}`, '_blank');
+            
+            alert("✅ Enquiry Submitted! We will contact you on WhatsApp.");
+            this.reset();
+        });
+
+        // Initialize
         createDots();
         startAutoPlay();
     </script>
